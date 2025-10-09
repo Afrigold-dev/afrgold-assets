@@ -1,10 +1,6 @@
 {
   "name": "AfriGold (Devnet)",
   "symbol": "AFGD",
-  "description": "AfriGold test token on Solana Devnet.",
-  "image": "https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png",
-  "decimals": 9,
-  "attributes": [],
-  "tags": ["utility", "devnet"],
-  }
+  "description": "AfriGold on Solana Devnet (Token-2022) with a 1% transfer fee capped at 0.1 AFGD.",
+  "image": "https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png"
 }
