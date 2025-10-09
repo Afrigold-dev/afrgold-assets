@@ -1,0 +1,9 @@
+{
+  "name": "AfriGold (Devnet)",
+  "symbol": "AFGD",
+  "description": "AfriGold Devnet token (Token-2022) with a 1% transfer fee.",
+  "image": "<<<REPLACE-WITH-RAW-IMAGE-URL>>>",
+  "extensions": {
+    "website": "https://example.com"
+  }
+}
