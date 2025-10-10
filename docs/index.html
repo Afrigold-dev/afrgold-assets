@@ -4,14 +4,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AfriGold (AFGD) — Official</title>
 
-<!-- Open Graph / Twitter -->
+<!-- Canonical & theme -->
+<link rel="canonical" href="https://afrigold-dev.github.io/afrgold-assets/">
+<meta name="theme-color" content="#0b0c0f">
+
+<!-- Open Graph / Twitter (absolute URLs for reliable previews) -->
 <meta property="og:title" content="AfriGold (AFGD) — Official">
 <meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee and fixed supply.">
-<meta property="og:image" content="afrgold.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://afrigold-dev.github.io/afrgold-assets/">
+<meta property="og:site_name" content="AfriGold (AFGD)">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AfriGold (AFGD) — Official">
+<meta name="twitter:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee and fixed supply.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png">
 
-<link rel="icon" href="afrgold.png">
+<!-- Favicon (absolute URL) -->
+<link rel="icon" href="https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png">
+
 <style>
   :root{--bg:#0b0c0f;--card:#111318;--text:#e9ecf1;--muted:#aab2c0;--accent:#ffd166}
   *{box-sizing:border-box} body{margin:40px auto;max-width:900px;padding:0 20px;
@@ -83,8 +94,11 @@
   document.getElementById('solscan').href  = `https://solscan.io/token/${MINT}`;
 
   document.getElementById('copyBtn').onclick = async () => {
-    try { await navigator.clipboard.writeText(MINT);
-      const b = document.getElementById('copyBtn'); b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',1200);
+    try {
+      await navigator.clipboard.writeText(MINT);
+      const b = document.getElementById('copyBtn');
+      b.textContent='Copied!';
+      setTimeout(()=>b.textContent='Copy',1200);
     } catch(e) {}
   }
 </script>
