@@ -1,0 +1,24 @@
+{
+  "name": "AfriGold Community List",
+  "logoURI": "https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png",
+  "tags": {
+    "community": { "name": "Community", "description": "Community-maintained tokens" }
+  },
+  "timestamp": "2025-10-10T00:00:00+00:00",
+  "tokens": [
+    {
+      "chainId": 101,
+      "address": "EqQmrSc6fPvovwj7NKk3ZT8fdYBJxFnKZ83ZpBzrdN7t",
+      "symbol": "AFGD",
+      "name": "AfriGold",
+      "decimals": 9,
+      "logoURI": "https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png",
+      "tags": ["community"],
+      "extensions": {
+        "website": "https://afrigold-dev.github.io/afrgold-assets/",
+        "description": "AfriGold (AFGD) is a fixed-supply Token-2022 asset with a 1% transfer fee.",
+        "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+      }
+    }
+  ]
+}
