@@ -1,0 +1,13 @@
+{
+  "name": "AfriGold",
+  "symbol": "AFGD",
+  "image": "https://raw.githubusercontent.com/Afrigold-dev/afrgold-assets/main/afrgold.png",
+  "description": "AfriGold token (Token-2022) with a 1% transfer fee (cap 0.05 AFGD) and fixed supply.",
+  "extensions": {
+    "website": "https://afrigold-dev.github.io/afrigold-assets/",
+    "token2022": {
+      "transferFeeBps": 100,
+      "transferFeeMax": 50000000
+    }
+  }
+}
