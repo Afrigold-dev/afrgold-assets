@@ -6,7 +6,7 @@
 
 <!-- Open Graph / Twitter -->
 <meta property="og:title" content="AfriGold (AFGD) — Official">
-<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee and fixed supply.">
+<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and fixed 1B supply.">
 <meta property="og:image" content="afrgold.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -14,19 +14,22 @@
 <link rel="icon" href="afrgold.png">
 <style>
   :root{--bg:#0b0c0f;--card:#111318;--text:#e9ecf1;--muted:#aab2c0;--accent:#ffd166}
-  *{box-sizing:border-box} body{margin:40px auto;max-width:900px;padding:0 20px;
-  font:16px/1.6 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b0c0f;color:var(--text)}
-  .row{display:grid;gap:22px;grid-template-columns:1fr} @media(min-width:860px){.row{grid-template-columns:1fr 1fr}}
+  *{box-sizing:border-box}
+  body{margin:40px auto;max-width:900px;padding:0 20px;font:16px/1.6 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b0c0f;color:var(--text)}
+  .row{display:grid;gap:22px;grid-template-columns:1fr}
+  @media(min-width:860px){.row{grid-template-columns:1fr 1fr}}
   .card{background:var(--card);border:1px solid #1b1f2a;border-radius:16px;padding:18px 20px}
   .btn{display:inline-flex;gap:8px;align-items:center;background:#1a2030;border:1px solid #2a3246;color:#e6ecf8;border-radius:10px;padding:10px 14px;text-decoration:none;cursor:pointer}
   .btn:hover{border-color:#3a4564}
   .mint{display:flex;gap:10px;align-items:center}
   code{background:#0c0f15;border:1px solid #1b2130;border-radius:8px;padding:8px 10px;display:block;word-break:break-all}
-  h1{display:flex;gap:14px;align-items:center;margin:0 0 8px} img.logo{width:64px;height:64px;border-radius:14px}
-  h2{margin:0 0 12px} small{color:var(--muted)}
+  h1{display:flex;gap:14px;align-items:center;margin:0 0 8px}
+  img.logo{width:64px;height:64px;border-radius:14px}
+  h2{margin:0 0 12px}
+  small{color:var(--muted)}
   ul{margin:10px 0 0 18px}
-  a{color:#b9d0ff} a:hover{color:#d6e5ff}
-  .ok{color:#7ef29a} .warn{color:#ffd166}
+  a{color:#b9d0ff}a:hover{color:#d6e5ff}
+  .ok{color:#7ef29a}.warn{color:#ffd166}
 </style>
 
 <body>
@@ -38,13 +41,15 @@
   <section class="card">
     <h2>Official Mint</h2>
     <div class="mint">
-      <code id="mint">7guKCMfYJUK2cDGCwowSixQ5aVpwnCBvYZ8yDpCRYK3</code>
+      <!-- NEW MINT -->
+      <code id="mint">8KbB5DkHTS3ZwWqwe1FUgZvR8kQJWPafU7CRrUL1RjKG</code>
       <button class="btn" id="copyBtn" title="Copy mint address">Copy</button>
     </div>
     <p><small>Always verify this address before interacting with AFGD.</small></p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
       <a class="btn" id="explorer" target="_blank" rel="noopener">View on Solana Explorer</a>
       <a class="btn" id="solscan"  target="_blank" rel="noopener">View on Solscan</a>
+      <a class="btn" id="birdeye"  target="_blank" rel="noopener">View on Birdeye</a>
     </div>
   </section>
 
@@ -55,13 +60,13 @@
         <li>Program: <b>Token-2022</b></li>
         <li>Decimals: <b>9</b></li>
         <li>Transfer fee: <b>1%</b> <small>(cap 0.05 AFGD)</small></li>
-        <li>Supply: <b>1,000,000,000</b> <small class="ok">(mint locked)</small></li>
+        <li>Supply: <b>1,000,000,000</b> <small class="ok">(mint authority active; supply adjustable until lock)</small></li>
       </ul>
     </section>
 
     <section class="card">
-      <h2>Get AFGD</h2>
-      <p>AFGD is tradable in Solana wallets that support Token-2022 (e.g., Phantom).</p>
+      <h2>Add AFGD</h2>
+      <p>AFGD is supported by wallets that understand Token-2022 (e.g., Phantom).</p>
       <ol>
         <li>In Phantom, open <b>Manage tokens → Import</b>.</li>
         <li>Paste the mint address above and select decimals <b>9</b>.</li>
@@ -72,13 +77,14 @@
 
   <section class="card" style="margin-top:22px">
     <h2>About</h2>
-    <p>AfriGold (AFGD) is a fixed-supply community token on Solana with a modest 1% transfer fee to sustain development.</p>
+    <p>AfriGold (AFGD) is a fixed-supply community token on Solana with a modest 1% fee to sustain development.</p>
   </section>
 
 <script>
   const MINT = document.getElementById('mint').textContent.trim();
   document.getElementById('explorer').href = `https://explorer.solana.com/address/${MINT}`;
   document.getElementById('solscan').href  = `https://solscan.io/token/${MINT}`;
+  document.getElementById('birdeye').href  = `https://birdeye.so/token/${MINT}?chain=solana`;
   document.getElementById('copyBtn').onclick = async () => {
     try { await navigator.clipboard.writeText(MINT);
       const b = document.getElementById('copyBtn'); b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',1200);
