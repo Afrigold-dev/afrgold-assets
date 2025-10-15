@@ -6,7 +6,7 @@
 
 <!-- Open Graph / Twitter -->
 <meta property="og:title" content="AfriGold (AFGD) — Official">
-<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and fixed 1B supply.">
+<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B supply.">
 <meta property="og:image" content="afrgold.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -28,20 +28,19 @@
   h2{margin:0 0 12px}
   small{color:var(--muted)}
   ul{margin:10px 0 0 18px}
-  a{color:#b9d0ff}a:hover{color:#d6e5ff}
-  .ok{color:#7ef29a}.warn{color:#ffd166}
+  a{color:#b9d0ff} a:hover{color:#d6e5ff}
+  .ok{color:#7ef29a} .warn{color:#ffd166}
 </style>
 
 <body>
   <header style="margin-bottom:22px;">
     <h1><img class="logo" src="afrgold.png" alt="AfriGold"> AfriGold (AFGD)</h1>
-    <small>A Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and fixed 1B supply.</small>
+    <small>A Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B supply.</small>
   </header>
 
   <section class="card">
     <h2>Official Mint</h2>
     <div class="mint">
-      <!-- NEW MINT -->
       <code id="mint">8KbB5DkHTS3ZwWqwe1FUgZvR8kQJWPafU7CRrUL1RjKG</code>
       <button class="btn" id="copyBtn" title="Copy mint address">Copy</button>
     </div>
@@ -49,7 +48,6 @@
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
       <a class="btn" id="explorer" target="_blank" rel="noopener">View on Solana Explorer</a>
       <a class="btn" id="solscan"  target="_blank" rel="noopener">View on Solscan</a>
-      <a class="btn" id="birdeye"  target="_blank" rel="noopener">View on Birdeye</a>
     </div>
   </section>
 
@@ -60,31 +58,30 @@
         <li>Program: <b>Token-2022</b></li>
         <li>Decimals: <b>9</b></li>
         <li>Transfer fee: <b>1%</b> <small>(cap 0.05 AFGD)</small></li>
-        <li>Supply: <b>1,000,000,000</b> <small class="ok">(mint authority active; supply adjustable until lock)</small></li>
+        <li>Current supply: <b>1,000,000,000</b></li>
+        <li>Mint authority: <b>Active</b> <small class="warn">(will lock after LP launch)</small></li>
       </ul>
     </section>
 
     <section class="card">
-      <h2>Add AFGD</h2>
-      <p>AFGD is supported by wallets that understand Token-2022 (e.g., Phantom).</p>
+      <h2>Add AFGD to Phantom</h2>
       <ol>
         <li>In Phantom, open <b>Manage tokens → Import</b>.</li>
         <li>Paste the mint address above and select decimals <b>9</b>.</li>
       </ol>
-      <p class="warn"><small>Never buy from an address that doesn’t match the mint above.</small></p>
+      <p class="warn"><small>Some wallets index Token-2022 slowly; if name/logo don’t show yet, it will sync soon.</small></p>
     </section>
   </div>
 
   <section class="card" style="margin-top:22px">
     <h2>About</h2>
-    <p>AfriGold (AFGD) is a fixed-supply community token on Solana with a modest 1% fee to sustain development.</p>
+    <p>AfriGold (AFGD) is a fixed-supply community token on Solana. A modest 1% transfer fee helps sustain development.</p>
   </section>
 
 <script>
   const MINT = document.getElementById('mint').textContent.trim();
   document.getElementById('explorer').href = `https://explorer.solana.com/address/${MINT}`;
   document.getElementById('solscan').href  = `https://solscan.io/token/${MINT}`;
-  document.getElementById('birdeye').href  = `https://birdeye.so/token/${MINT}?chain=solana`;
   document.getElementById('copyBtn').onclick = async () => {
     try { await navigator.clipboard.writeText(MINT);
       const b = document.getElementById('copyBtn'); b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',1200);
