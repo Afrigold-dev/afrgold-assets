@@ -6,13 +6,14 @@
 
 <!-- Open Graph / X -->
 <meta property="og:title" content="AfriGold (AFGD) — Official">
-<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B supply.">
+<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B fixed supply. Mint locked.">
 <meta property="og:image" content="afrgold.png">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://afrigold-dev.github.io/afrigold-assets/">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="afrgold.png">
-<link rel="canonical" href="https://afrigold-dev.github.io/afrgold-assets/">
+<link rel="canonical" href="https://afrigold-dev.github.io/afrigold-assets/">
 
 <style>
   :root{--bg:#0b0c0f;--card:#111318;--text:#e9ecf1;--muted:#aab2c0;--accent:#ffd166}
@@ -40,11 +41,12 @@
 <body>
   <header style="margin-bottom:22px;">
     <h1><img class="logo" src="afrgold.png" alt="AfriGold"> AfriGold (AFGD)</h1>
-    <small>A Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B supply.</small>
+    <small>A Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B fixed supply.</small>
     <div class="chips">
       <span class="chip">Token-2022</span>
       <span class="chip">9 decimals</span>
       <span class="chip">Fee: 1% (cap 0.05)</span>
+      <span class="chip">Mint locked ✅</span>
     </div>
   </header>
 
@@ -73,17 +75,17 @@
         <li>Decimals: <b>9</b></li>
         <li>Transfer fee: <b>1%</b> <small>(cap 0.05 AFGD)</small></li>
         <li>Current supply: <b>1,000,000,000</b></li>
-        <li>Mint authority: <b>Active</b> <small class="warn">(to be locked after launch steps)</small></li>
+        <li>Mint authority: <b class="ok">Not set</b> <small>(supply locked)</small></li>
       </ul>
       <div style="margin-top:10px">
-        <small>Update authority: held by the admin signer for metadata only (name/symbol/URI). Fee config authority retained for sweeping withheld fees.</small>
+        <small>Metadata update authority retained for name/symbol/URI. Fee configuration authority retained for withdrawing withheld fees.</small>
       </div>
     </section>
 
     <!-- Get / Trade -->
     <section class="card">
       <h2>Get / Trade AFGD</h2>
-      <p>AFGD is tradable with Raydium liquidity. If your wallet hasn’t indexed metadata yet, import by mint address.</p>
+      <p>AFGD is tradable on Raydium. If your wallet hasn’t indexed metadata yet, import by mint address.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn" id="raydiumSwap" target="_blank" rel="noopener">Trade on Raydium</a>
         <a class="btn" id="raydiumPool" target="_blank" rel="noopener">Raydium Pool</a>
@@ -99,15 +101,15 @@
   <!-- Community & Impact -->
   <section class="card" style="margin-top:22px">
     <h2>About</h2>
-    <p>AfriGold (AFGD) is a fixed-supply, community-driven token on Solana. A modest 1% transfer fee (capped) sustains development and operations.</p>
-    <p><b>Liquidity plan:</b> initial seeding, then periodic top-ups as community traction and volume grow. We’ll post short updates after each change for transparency.</p>
+    <p>AfriGold (AFGD) is a fixed-supply, community-driven token on Solana. A modest 1% transfer fee (with a hard cap per transfer) helps sustain development and operations.</p>
+    <p><b>Liquidity plan:</b> initial seeding on Raydium, followed by periodic top-ups as community traction and volume grow. We’ll post brief transparency updates after each change.</p>
   </section>
 
   <!-- Links -->
   <section class="card" style="margin-top:22px">
     <h2>Links</h2>
     <ul>
-      <li>Website (this page): <a href="https://afrigold-dev.github.io/afrgold-assets/" target="_blank" rel="noopener">afrigold-dev.github.io/afrgold-assets</a></li>
+      <li>Website (this page): <a href="https://afrigold-dev.github.io/afrigold-assets/" target="_blank" rel="noopener">afrigold-dev.github.io/afrigold-assets</a></li>
       <li>Mint (AFGD): <code style="margin-top:6px">8KbB5DkHTS3ZwWqwe1FUgZvR8kQJWPafU7CRrUL1RjKG</code></li>
       <li>Raydium Pool (AMM ID): <code style="margin-top:6px">BUV4vgrkMARGvsnL4h4pmRxv941mZH4d4VDz3mwFqpxB</code></li>
       <li>Telegram: <a href="https://t.me/AFGD_Official" target="_blank" rel="noopener">@AFGD_Official</a></li>
@@ -128,9 +130,7 @@
   document.getElementById('dexscreener').href = `https://dexscreener.com/solana/${AMM}`;
 
   // --- Raydium links ---
-  // Swap prefilled for USDC -> AFGD (users can flip direction in UI)
   document.getElementById('raydiumSwap').href = `https://raydium.io/swap/?inputMint=${USDC}&outputMint=${MINT}`;
-  // Pool overview (some UIs accept ammId)
   document.getElementById('raydiumPool').href = `https://raydium.io/pools/?ammId=${AMM}`;
 
   // --- copy button ---
