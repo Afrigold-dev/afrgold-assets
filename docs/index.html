@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AfriGold (AFGD) — Official</title>
 
-<!-- Open Graph / Twitter -->
+<!-- Open Graph / X -->
 <meta property="og:title" content="AfriGold (AFGD) — Official">
 <meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B supply.">
 <meta property="og:image" content="afrgold.png">
@@ -12,16 +12,19 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="afrgold.png">
+<link rel="canonical" href="https://afrigold-dev.github.io/afrgold-assets/">
+
 <style>
   :root{--bg:#0b0c0f;--card:#111318;--text:#e9ecf1;--muted:#aab2c0;--accent:#ffd166}
   *{box-sizing:border-box}
-  body{margin:40px auto;max-width:900px;padding:0 20px;font:16px/1.6 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b0c0f;color:var(--text)}
+  body{margin:40px auto;max-width:960px;padding:0 20px;font:16px/1.6 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b0c0f;color:var(--text)}
   .row{display:grid;gap:22px;grid-template-columns:1fr}
-  @media(min-width:860px){.row{grid-template-columns:1fr 1fr}}
+  @media(min-width:940px){.row{grid-template-columns:1fr 1fr}}
   .card{background:var(--card);border:1px solid #1b1f2a;border-radius:16px;padding:18px 20px}
   .btn{display:inline-flex;gap:8px;align-items:center;background:#1a2030;border:1px solid #2a3246;color:#e6ecf8;border-radius:10px;padding:10px 14px;text-decoration:none;cursor:pointer}
   .btn:hover{border-color:#3a4564}
-  .mint{display:flex;gap:10px;align-items:center}
+  .btn.small{padding:8px 12px;font-size:14px}
+  .mint{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   code{background:#0c0f15;border:1px solid #1b2130;border-radius:8px;padding:8px 10px;display:block;word-break:break-all}
   h1{display:flex;gap:14px;align-items:center;margin:0 0 8px}
   img.logo{width:64px;height:64px;border-radius:14px}
@@ -30,28 +33,39 @@
   ul{margin:10px 0 0 18px}
   a{color:#b9d0ff} a:hover{color:#d6e5ff}
   .ok{color:#7ef29a} .warn{color:#ffd166}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .chip{background:#151a26;border:1px solid #262f43;color:#cfe0ff;border-radius:999px;padding:4px 10px;font-size:13px}
 </style>
 
 <body>
   <header style="margin-bottom:22px;">
     <h1><img class="logo" src="afrgold.png" alt="AfriGold"> AfriGold (AFGD)</h1>
     <small>A Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B supply.</small>
+    <div class="chips">
+      <span class="chip">Token-2022</span>
+      <span class="chip">9 decimals</span>
+      <span class="chip">Fee: 1% (cap 0.05)</span>
+    </div>
   </header>
 
+  <!-- Mint & Explorers -->
   <section class="card">
     <h2>Official Mint</h2>
     <div class="mint">
       <code id="mint">8KbB5DkHTS3ZwWqwe1FUgZvR8kQJWPafU7CRrUL1RjKG</code>
-      <button class="btn" id="copyBtn" title="Copy mint address">Copy</button>
+      <button class="btn small" id="copyBtn" title="Copy mint address">Copy</button>
     </div>
     <p><small>Always verify this address before interacting with AFGD.</small></p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
       <a class="btn" id="explorer" target="_blank" rel="noopener">View on Solana Explorer</a>
       <a class="btn" id="solscan"  target="_blank" rel="noopener">View on Solscan</a>
+      <a class="btn" id="birdeye"  target="_blank" rel="noopener">View on Birdeye</a>
+      <a class="btn" id="dexscreener" target="_blank" rel="noopener">View on DexScreener</a>
     </div>
   </section>
 
   <div class="row" style="margin-top:22px">
+    <!-- Token Details -->
     <section class="card">
       <h2>Token Details</h2>
       <ul>
@@ -59,32 +73,73 @@
         <li>Decimals: <b>9</b></li>
         <li>Transfer fee: <b>1%</b> <small>(cap 0.05 AFGD)</small></li>
         <li>Current supply: <b>1,000,000,000</b></li>
-        <li>Mint authority: <b>Active</b> <small class="warn">(will lock after LP launch)</small></li>
+        <li>Mint authority: <b>Active</b> <small class="warn">(to be locked after launch steps)</small></li>
       </ul>
+      <div style="margin-top:10px">
+        <small>Update authority: held by the admin signer for metadata only (name/symbol/URI). Fee config authority retained for sweeping withheld fees.</small>
+      </div>
     </section>
 
+    <!-- Get / Trade -->
     <section class="card">
-      <h2>Add AFGD to Phantom</h2>
-      <ol>
+      <h2>Get / Trade AFGD</h2>
+      <p>AFGD is tradable with Raydium liquidity. If your wallet hasn’t indexed metadata yet, import by mint address.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" id="raydiumSwap" target="_blank" rel="noopener">Trade on Raydium</a>
+        <a class="btn" id="raydiumPool" target="_blank" rel="noopener">Raydium Pool</a>
+      </div>
+      <ol style="margin-top:10px">
         <li>In Phantom, open <b>Manage tokens → Import</b>.</li>
-        <li>Paste the mint address above and select decimals <b>9</b>.</li>
+        <li>Paste the mint address and select decimals <b>9</b>.</li>
       </ol>
       <p class="warn"><small>Some wallets index Token-2022 slowly; if name/logo don’t show yet, it will sync soon.</small></p>
     </section>
   </div>
 
+  <!-- Community & Impact -->
   <section class="card" style="margin-top:22px">
     <h2>About</h2>
-    <p>AfriGold (AFGD) is a fixed-supply community token on Solana. A modest 1% transfer fee helps sustain development.</p>
+    <p>AfriGold (AFGD) is a fixed-supply, community-driven token on Solana. A modest 1% transfer fee (capped) sustains development and operations.</p>
+    <p><b>Liquidity plan:</b> initial seeding, then periodic top-ups as community traction and volume grow. We’ll post short updates after each change for transparency.</p>
+  </section>
+
+  <!-- Links -->
+  <section class="card" style="margin-top:22px">
+    <h2>Links</h2>
+    <ul>
+      <li>Website (this page): <a href="https://afrigold-dev.github.io/afrgold-assets/" target="_blank" rel="noopener">afrigold-dev.github.io/afrgold-assets</a></li>
+      <li>Mint (AFGD): <code style="margin-top:6px">8KbB5DkHTS3ZwWqwe1FUgZvR8kQJWPafU7CRrUL1RjKG</code></li>
+      <li>Raydium Pool (AMM ID): <code style="margin-top:6px">BUV4vgrkMARGvsnL4h4pmRxv941mZH4d4VDz3mwFqpxB</code></li>
+      <li>Telegram: <a href="https://t.me/AFGD_Official" target="_blank" rel="noopener">@AFGD_Official</a></li>
+      <li>X (Twitter): <a href="https://x.com/AfgdAfrigold" target="_blank" rel="noopener">@AfgdAfrigold</a></li>
+    </ul>
   </section>
 
 <script>
+  // --- constants ---
   const MINT = document.getElementById('mint').textContent.trim();
-  document.getElementById('explorer').href = `https://explorer.solana.com/address/${MINT}`;
-  document.getElementById('solscan').href  = `https://solscan.io/token/${MINT}`;
+  const AMM  = "BUV4vgrkMARGvsnL4h4pmRxv941mZH4d4VDz3mwFqpxB";
+  const USDC = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"; // classic USDC
+
+  // --- explorer links ---
+  document.getElementById('explorer').href    = `https://explorer.solana.com/address/${MINT}`;
+  document.getElementById('solscan').href     = `https://solscan.io/token/${MINT}`;
+  document.getElementById('birdeye').href     = `https://birdeye.so/token/${MINT}?chain=solana`;
+  document.getElementById('dexscreener').href = `https://dexscreener.com/solana/${AMM}`;
+
+  // --- Raydium links ---
+  // Swap prefilled for USDC -> AFGD (users can flip direction in UI)
+  document.getElementById('raydiumSwap').href = `https://raydium.io/swap/?inputMint=${USDC}&outputMint=${MINT}`;
+  // Pool overview (some UIs accept ammId)
+  document.getElementById('raydiumPool').href = `https://raydium.io/pools/?ammId=${AMM}`;
+
+  // --- copy button ---
   document.getElementById('copyBtn').onclick = async () => {
-    try { await navigator.clipboard.writeText(MINT);
-      const b = document.getElementById('copyBtn'); b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',1200);
+    try {
+      await navigator.clipboard.writeText(MINT);
+      const b = document.getElementById('copyBtn');
+      b.textContent='Copied!';
+      setTimeout(()=>b.textContent='Copy',1200);
     } catch(e) {}
   }
 </script>
