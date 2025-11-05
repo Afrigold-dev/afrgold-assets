@@ -6,7 +6,7 @@
 
 <!-- Open Graph / X -->
 <meta property="og:title" content="AfriGold (AFGD) — Official">
-<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B fixed supply. Mint locked.">
+<meta property="og:description" content="Official site for AfriGold (AFGD), a Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD). Mint authority revoked; metadata immutable.">
 <meta property="og:image" content="afrgold.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://afrigold-dev.github.io/afrigold-assets/">
@@ -41,12 +41,13 @@
 <body>
   <header style="margin-bottom:22px;">
     <h1><img class="logo" src="afrgold.png" alt="AfriGold"> AfriGold (AFGD)</h1>
-    <small>A Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and 1B fixed supply.</small>
+    <small>A Solana Token-2022 asset with a 1% transfer fee (cap 0.05 AFGD) and fixed supply.</small>
     <div class="chips">
       <span class="chip">Token-2022</span>
       <span class="chip">9 decimals</span>
       <span class="chip">Fee: 1% (cap 0.05)</span>
       <span class="chip">Mint locked ✅</span>
+      <span class="chip">Metadata locked ✅</span>
     </div>
   </header>
 
@@ -63,6 +64,8 @@
       <a class="btn" id="solscan"  target="_blank" rel="noopener">View on Solscan</a>
       <a class="btn" id="birdeye"  target="_blank" rel="noopener">View on Birdeye</a>
       <a class="btn" id="dexscreener" target="_blank" rel="noopener">View on DexScreener</a>
+      <a class="btn" id="metadata" target="_blank" rel="noopener">Metadata JSON</a>
+      <a class="btn" id="locktx" target="_blank" rel="noopener">Lock Tx</a>
     </div>
   </section>
 
@@ -74,11 +77,12 @@
         <li>Program: <b>Token-2022</b></li>
         <li>Decimals: <b>9</b></li>
         <li>Transfer fee: <b>1%</b> <small>(cap 0.05 AFGD)</small></li>
-        <li>Current supply: <b>1,000,000,000</b></li>
+        <li>Fixed supply: <b>1,000,000,000</b></li>
         <li>Mint authority: <b class="ok">Not set</b> <small>(supply locked)</small></li>
+        <li>Metadata: <b class="ok">Immutable</b> <small>(name, symbol &amp; URI locked on-chain)</small></li>
       </ul>
       <div style="margin-top:10px">
-        <small>Metadata update authority retained for name/symbol/URI. Fee configuration authority retained for withdrawing withheld fees.</small>
+        <small>Fee configuration &amp; withdrawal authority are retained for fee operations (e.g., sweeping withheld fees). Lock tx linked above.</small>
       </div>
     </section>
 
@@ -122,12 +126,18 @@
   const MINT = document.getElementById('mint').textContent.trim();
   const AMM  = "BUV4vgrkMARGvsnL4h4pmRxv941mZH4d4VDz3mwFqpxB";
   const USDC = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"; // classic USDC
+  const METADATA_URI = "https://raw.githubusercontent.com/Afrigold-dev/afrigold-assets/main/listing-pack/afrigold-v2-mainnet.json";
+  const LOCK_SIG = "23q96uGVjuU3TG8y47CdMQVyBi8JXVi1CKzSeCDdzKofgR9PB7evp1oNj1cWHdb5LEPPz3Q1PDX6M4CitFXkjo3P";
 
   // --- explorer links ---
   document.getElementById('explorer').href    = `https://explorer.solana.com/address/${MINT}`;
   document.getElementById('solscan').href     = `https://solscan.io/token/${MINT}`;
   document.getElementById('birdeye').href     = `https://birdeye.so/token/${MINT}?chain=solana`;
   document.getElementById('dexscreener').href = `https://dexscreener.com/solana/${AMM}`;
+
+  // --- verify / metadata ---
+  document.getElementById('metadata').href = METADATA_URI;
+  document.getElementById('locktx').href   = `https://explorer.solana.com/tx/${LOCK_SIG}`;
 
   // --- Raydium links ---
   document.getElementById('raydiumSwap').href = `https://raydium.io/swap/?inputMint=${USDC}&outputMint=${MINT}`;
